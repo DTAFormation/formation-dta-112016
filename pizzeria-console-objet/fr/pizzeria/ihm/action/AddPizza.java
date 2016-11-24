@@ -19,9 +19,16 @@ public class AddPizza extends Action {
 
 	@Override
 	public void doAction() {
+		
 		System.out.println("JE CREE UNE PIZZA :D");
+		System.out.println("Veuillez entrer l'alias de la nouvelle pizza s'il vous plait");
+		String code=ihmUtil.getScanner().next();
+		System.out.println("Veuillez entrer le nom de la nouvelle pizza s'il vous plait");
+		String nom=ihmUtil.getScanner().next();
+		System.out.println("Veuillez entrer le prix de la nouvelle pizza s'il vous plait");
+		String prix=ihmUtil.getScanner().next();
 		
-		
+		//Pizza p= new Pizza(ihmUtil.tailleTableauPizza() , code, nom, prix);
 		
 	}
 

@@ -10,12 +10,7 @@ public class PizzeriaAdminConsoleApp {
 
 	
 
-	/**
-	 * Point d'entr�e du programme
-	 * On execute la fonction qui va afficher le menu principal
-	 * en boucle
-	 * @param args
-	 */
+	
 	public static void main(String[] args) {
 		//	initPizzas();
 		//	printMenu();

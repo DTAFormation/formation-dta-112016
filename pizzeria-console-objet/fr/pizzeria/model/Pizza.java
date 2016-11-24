@@ -15,10 +15,16 @@ public class Pizza {
 		this.code = code;
 		this.nom = nom;
 		this.prix = prix;
+		nbPizzas++;
 	}
 	public Pizza() {
 		super();
+		nbPizzas++;
 		// TODO Auto-generated constructor stub
+	}
+	
+	public int getNbPizzas(){
+		return nbPizzas;
 	}
 	public int getId() {
 		return id;
