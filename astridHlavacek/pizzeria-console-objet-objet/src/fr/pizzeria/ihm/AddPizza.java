@@ -21,10 +21,8 @@ public class AddPizza extends Action {
 		System.out.println("Nom de la Pizza");
 		String nom = ihmUtil.getScanner().next();
 		System.out.println("Prix de la Pizza");
-		Pizza[] Pizzas = ihmUtil.getPizzaDao().findAllPizzas();
 		String prix = ihmUtil.getScanner().next();
-		int idF =  (Pizzas[(Pizzas.length)-1].getId())+1;
-		Pizza pizza = new Pizza(idF,code,nom,Double.parseDouble(prix));
+		Pizza pizza = new Pizza(code,nom,Double.parseDouble(prix));
 		ihmUtil.getPizzaDao().saveNewPizza(pizza);
 	}
 

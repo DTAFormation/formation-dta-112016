@@ -24,27 +24,30 @@ public class PizzaDaoTableau implements IPizzaDao {
 		for(int i=0;i<Pizzas.length;i++){
 			Etape[i] = Pizzas[i];
 		}
+		int idF =  (Pizzas[(Pizzas.length)-1].getId())+1;
+		pizza.setId(idF);
 		Etape[Pizzas.length] = pizza;
 		Pizzas = Etape;
+		int nbPizza = Pizza.getNbPizzas();	
+		nbPizza++;
+		Pizza.setNbPizzas(nbPizza);
 	}
 
 	@Override
 	public void updatePizza(String codePizza, Pizza pizza) {
 		for(int i=0;i<Pizzas.length;i++){
-			if((Pizzas[i].getCode()).equals(codePizza)==true){
-				Pizzas[i] = new Pizza(Pizzas[i].getId(),pizza.getCode(),pizza.getNom(),pizza.getPrix());
+			if((Pizzas[i].getCode()).equals(codePizza)){
+				pizza.setId(Pizzas[i].getId());
+				Pizzas[i] = pizza;
 			} 
 		}
-		int nbPizza = Pizza.getNbPizzas();	
-		nbPizza--;
-		Pizza.setNbPizzas(nbPizza);
 	}
 
 	@Override
 	public void deletePizza(String codePizza) {
 		int j = 0;
 		for(int i=0;i<Pizzas.length;i++){
-			if((Pizzas[i].getCode()).equals(codePizza)==true){
+			if((Pizzas[i].getCode()).equals(codePizza)){
 				j = i;
 			}
 		}
