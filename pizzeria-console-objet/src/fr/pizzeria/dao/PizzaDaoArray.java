@@ -1,5 +1,6 @@
 package fr.pizzeria.dao;
 
+import fr.pizzeria.Exception.SavePizzaException;
 import fr.pizzeria.model.Pizza;
 
 public class PizzaDaoArray implements PizzaDao {
@@ -21,7 +22,7 @@ public class PizzaDaoArray implements PizzaDao {
 	}
 
 	@Override
-	public boolean saveNewPizza(Pizza pizza) {
+	public boolean saveNewPizza(Pizza pizza) throws SavePizzaException {
 
 		Pizza[] newMenu = new Pizza[pizzas.length + 1];
 

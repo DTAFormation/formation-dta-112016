@@ -1,5 +1,6 @@
 package fr.pizzeria.ihm.action;
 
+import fr.pizzeria.Exception.*;
 import fr.pizzeria.ihm.IhmUtil;
 import fr.pizzeria.model.Pizza;
 
@@ -15,6 +16,9 @@ public class AddPizza extends Action {
 
 	@Override
 	public void do_action() {
+
+		
+	try {
 		System.out.println("Veuillez saisir le code");
 		String code = this.utils.getScanner().next();
 
@@ -33,8 +37,14 @@ public class AddPizza extends Action {
 		} catch (Exception e) {
 			System.out.println("Invalid price");
 		}
-
+		
 		utils.getPizzaDao().saveNewPizza(newPizza);
+	} catch (SavePizzaException | NumberFormatException a ) {
+		// TODO: handle exception
+	}
+		
+
+		
 	}
 
 	@Override
