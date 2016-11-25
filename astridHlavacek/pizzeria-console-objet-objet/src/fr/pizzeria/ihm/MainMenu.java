@@ -25,7 +25,7 @@ public class MainMenu {
 		parseAndExec();
 	}
 
-	public void parseAndExec() {
+	private void parseAndExec() {
 		String input = ihmUtil.getScanner().next();
 
 		if (Integer.parseInt(input) <= 4){
