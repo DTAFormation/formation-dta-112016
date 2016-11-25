@@ -1,5 +1,6 @@
 package fr.pizzeria.ihm;
 
+import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.Pizza;
 
 public class UpdatePizza extends Action {
@@ -23,7 +24,11 @@ public class UpdatePizza extends Action {
 		System.out.println("Nouveau Prix de la Pizza");
 		String prixU = ihmUtil.getScanner().next();
 		Pizza pizza = new Pizza(codeU,nomU,Double.parseDouble(prixU));
-		ihmUtil.getPizzaDao().updatePizza(codePizza, pizza);
+		try {
+			ihmUtil.getPizzaDao().updatePizza(codePizza, pizza);
+		} catch (UpdatePizzaException e) {
+			e.messageException();
+		}
 	}
 
 	@Override
