@@ -6,7 +6,7 @@ import java.util.Scanner;
 import fr.pizzeria.dao.PizzaDaoTableau;
 import fr.pizzeria.ihm.IhmUtil;
 import fr.pizzeria.ihm.MainMenu;
-import fr.pizzeria.model.Pizza;
+
 
 public class PizzeriaAdminConsoleApp {
 

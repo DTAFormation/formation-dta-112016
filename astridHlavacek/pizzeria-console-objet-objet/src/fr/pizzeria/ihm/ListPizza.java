@@ -1,6 +1,6 @@
 package fr.pizzeria.ihm;
 
-import fr.pizzeria.dao.IPizzaDao;
+
 import fr.pizzeria.model.Pizza;
 
 public class ListPizza extends Action {
@@ -19,6 +19,7 @@ public class ListPizza extends Action {
 		for (Pizza p : this.ihmUtil.getPizzaDao().findAllPizzas()){
 			System.out.println(p.getId() + " " + p.getCode() + " " + p.getNom() + " " + p.getPrix());
 		}
+		System.out.println(Pizza.getNbPizzas() + " Pizzas enregistrées");
 	}
 
 	@Override

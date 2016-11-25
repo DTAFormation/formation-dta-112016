@@ -35,6 +35,9 @@ public class PizzaDaoTableau implements IPizzaDao {
 				Pizzas[i] = new Pizza(Pizzas[i].getId(),pizza.getCode(),pizza.getNom(),pizza.getPrix());
 			} 
 		}
+		int nbPizza = Pizza.getNbPizzas();	
+		nbPizza--;
+		Pizza.setNbPizzas(nbPizza);
 	}
 
 	@Override
