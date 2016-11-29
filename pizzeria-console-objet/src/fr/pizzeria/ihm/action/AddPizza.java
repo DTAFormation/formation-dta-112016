@@ -29,7 +29,7 @@ public class AddPizza extends Action {
 		String price = this.utils.getScanner().next();
 
 		Pizza newPizza = new Pizza();
-		newPizza.setId(this.utils.getPizzaDao().findAllPizzas().length);
+		newPizza.setId((int)(this.utils.getPizzaDao().findAllPizzas().stream().count()));
 		newPizza.setCode(code);
 		newPizza.setNom(name);
 		try {
@@ -40,7 +40,7 @@ public class AddPizza extends Action {
 		
 		utils.getPizzaDao().saveNewPizza(newPizza);
 	} catch (SavePizzaException | NumberFormatException a ) {
-		// TODO: handle exception
+
 	}
 		
 

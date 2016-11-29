@@ -1,23 +1,28 @@
 package fr.pizzeria.model;
 
+import fr.pizzeria.dao.enumPizza;
+
+
 public class Pizza {
 
 	private int id;
 	private String code;
 	private String nom;
 	private double prix;
+	private enumPizza categorie;
 	public static int nbPizzas;
 
 	public Pizza() {
 		super();
 	}
 
-	public Pizza(int id, String code, String nom, double prix) {
+	public Pizza(int id, String code, String nom, double prix, enumPizza categorie) {
 		super();
 		this.id = id;
 		this.code = code;
 		this.nom = nom;
 		this.prix = prix;
+		this.categorie =  categorie;
 	}
 
 	public int getId() {
@@ -60,5 +65,16 @@ public class Pizza {
 		Pizza.nbPizzas = nbPizzas;
 	}
 
+	public enumPizza getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(enumPizza categorie) {
+		this.categorie = categorie;
+	}
+
+	public Pizza pizzaEnCour(){
+		return this;
+	}
 	
 }

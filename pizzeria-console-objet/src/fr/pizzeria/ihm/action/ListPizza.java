@@ -19,6 +19,9 @@ public class ListPizza extends Action {
 		for (Pizza p: utils.getPizzaDao().findAllPizzas()) {
 			System.out.println(p.getCode() + " -> " + p.getNom() + " (" + p.getPrix() + " €)");
 		}
+
+
+
 	}
 
 	@Override
