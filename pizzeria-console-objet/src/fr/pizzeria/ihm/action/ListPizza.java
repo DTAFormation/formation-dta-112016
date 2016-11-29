@@ -2,6 +2,8 @@ package fr.pizzeria.ihm.action;
 
 import fr.pizzeria.dao.enumPizza;
 import fr.pizzeria.ihm.IhmUtil;
+import fr.pizzeria.ihm.ListMenu;
+import fr.pizzeria.ihm.Menu;
 import fr.pizzeria.model.Pizza;
 
 import java.util.ArrayList;
@@ -14,12 +16,8 @@ public class ListPizza extends Action {
 
 	public ListPizza(IhmUtil utils) {
 		super();
-		this.setDescription("1. Lister les pizzas");
 		this.utils = utils;
-		ListsousAction.add(new ListPizzaCategorie(utils));
-		ListsousAction.add(new AffichierPizzaTarifEleve(utils));
-
-
+		this.setDescription("1. Lister les pizzas");
 
 	}
 
@@ -30,13 +28,16 @@ public class ListPizza extends Action {
 			System.out.println(p.getCode() + " -> " + p.getNom() + " (" + p.getPrix() + " €)");
 		}*/
 
-		boolean b = false;
+/*		boolean b = false;
 		do {
 			this.ListsousAction.stream().forEach(a -> a.describe_action());
 			System.out.println("99 - Retour");
 			b =  this.do_sousaction();
-		}while(!b);
+		}while(!b);*/
 
+		Menu sm = new ListMenu(this.utils);
+		System.out.println("Retour" + sm.menu.stream().count() + 1);
+		sm.start();
 	}
 
 	@Override

@@ -10,52 +10,24 @@ import fr.pizzeria.ihm.action.ExitMenu;
 import fr.pizzeria.ihm.action.ListPizza;
 import fr.pizzeria.ihm.action.UpdatePizza;
 
-public class MainMenu {
+public class MainMenu extends Menu{
 
-	//Action[] menu = new Action[5];
-	List<Action> menu = new ArrayList<>();
-	IhmUtil utils;
+	List<Action> l;
 
-	public MainMenu(IhmUtil utils) {
-		menu.add(new ListPizza(utils));
-		menu.add(new AddPizza(utils));
-		menu.add(new UpdatePizza(utils));
-		menu.add(new DeletePizza(utils));
-		menu.add(new ExitMenu());
 
-		this.utils = utils;
+	public MainMenu(IhmUtil utils){
+		super(utils);
+		 l = new ArrayList<Action>() ;
+		l.add(new ListPizza(utils));
+		l.add(new AddPizza(utils));
+		l.add(new UpdatePizza(utils));
+		l.add(new DeletePizza(utils));
+		l.add(new ExitMenu());
+
+		this.menu = l;
 	}
 
-	private void displayMenu() {
 
-		System.out.println("***** Pizzeria Administration *****");
-/*		for (int i = 0; i < this.menu.length; ++i) {
-			this.menu[i].describe_action();
-		}*/
-		//menu.stream().forEach(m -> m.describe_action());
 
-		menu.stream().forEach(p -> p.describe_action());
-	}
 
-	private boolean parseAndExec() {
-
-		String input = utils.getScanner().next();
-
-		if (Integer.parseInt(input) < menu.stream().count()) {
-			//this.menu[Integer.parseInt(input) - 1].do_action();
-			this.menu.get(Integer.parseInt(input) -1).do_action();
-			return true;
-		}
-		else if (Integer.parseInt(input) == 99)
-			//this.menu[4].do_action();
-			this.menu.get(4).do_action();
-		return false;
-	}
-
-	public void start(){
-
-		do {
-			this.displayMenu();
-		} while (this.parseAndExec());
-	}
 }
