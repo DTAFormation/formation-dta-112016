@@ -1,5 +1,9 @@
 package fr.pizzeria.dao;
 
+import java.io.BufferedOutputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -22,6 +26,14 @@ public class PizzaDaoTableau implements IPizzaDao {
 		listPizzas.add(new Pizza(5, "SAV", "La savoyarde", 13.00, CategoriePizza.VIANDE));
 		listPizzas.add(new Pizza(6, "ORI", "L’orientale", 13.50, CategoriePizza.POISSON));
 		listPizzas.add(new Pizza(7, "IND", "L’indienne", 14.50, CategoriePizza.VIANDE));
+		stockage(new Pizza(0, "PEP", "Pépéroni", 12.50, CategoriePizza.VIANDE));
+		stockage(new Pizza(1, "MAR", "Margherita", 14.00, CategoriePizza.SANS_VIANDE));
+		stockage(new Pizza(2, "REI", "La Reine", 11.50, CategoriePizza.VIANDE));
+		stockage(new Pizza(3, "FRO", "La 4 fromages", 12.00, CategoriePizza.SANS_VIANDE));
+		stockage(new Pizza(4, "CAN", "La cannibale", 12.50, CategoriePizza.VIANDE));
+		stockage(new Pizza(5, "SAV", "La savoyarde", 13.00, CategoriePizza.VIANDE));
+		stockage(new Pizza(6, "ORI", "L’orientale", 13.50, CategoriePizza.POISSON));
+		stockage(new Pizza(7, "IND", "L’indienne", 14.50, CategoriePizza.VIANDE));
 	}
 
 	@Override
@@ -54,6 +66,7 @@ public class PizzaDaoTableau implements IPizzaDao {
 		int nbPizza = Pizza.getNbPizzas();
 		nbPizza++;
 		Pizza.setNbPizzas(nbPizza);
+		stockage(pizza);
 	}
 
 	@Override
@@ -64,6 +77,8 @@ public class PizzaDaoTableau implements IPizzaDao {
 				pizza.setId(p.getId());
 				int a = listPizzas.indexOf(p);
 				listPizzas.set(a, pizza);
+				destockage(p);
+				stockage(pizza);
 			}
 		});
 
@@ -77,6 +92,7 @@ public class PizzaDaoTableau implements IPizzaDao {
 		if (findFirst.isPresent()) {
 			Pizza pizza = findFirst.get();
 			listPizzas.remove(pizza);
+			destockage(pizza);
 		}
 
 		int nbPizza = Pizza.getNbPizzas();
@@ -85,4 +101,27 @@ public class PizzaDaoTableau implements IPizzaDao {
 
 	}
 
+	public void stockage(Pizza pizza) {
+		DataOutputStream dos;
+
+		try {
+
+			dos = new DataOutputStream(
+					new BufferedOutputStream(new FileOutputStream(new File("data/" + pizza.getCode() + ".txt"))));
+
+			dos.writeChars(pizza.getNom() + ";" + pizza.getPrix() + ";" + pizza.getCatP());
+
+			dos.close();
+
+		}
+
+		catch (java.io.IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void destockage(Pizza pizza) {
+		File fichier = new File("data/" + pizza.getCode() + ".txt");
+		fichier.delete();
+	}
 }
