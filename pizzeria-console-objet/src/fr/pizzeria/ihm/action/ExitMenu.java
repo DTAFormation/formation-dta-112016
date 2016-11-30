@@ -1,16 +1,18 @@
 package fr.pizzeria.ihm.action;
 
-public class DeletePizza extends Action {
+import fr.pizzeria.ihm.IhmUtil;
+
+public class ExitMenu extends Action {
 
 	
-	public DeletePizza() {
+	public ExitMenu() {
 		super();
-		this.setDescription("4. Supprimer une pizza");
+		this.setDescription("99. Sortir");
 	}
 
 	@Override
 	public void doAction() {
-		System.out.println("JE SUPPRIME UNE PIZZA :D");
+		System.out.println("AU REVOIR :'(");
 	}
 
 	@Override

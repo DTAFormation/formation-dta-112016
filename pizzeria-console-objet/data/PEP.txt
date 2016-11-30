@@ -1,0 +1,3 @@
+nom=Peperoni
+code=PEP
+prix=18

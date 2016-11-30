@@ -1,0 +1,3 @@
+nom=Margherita
+code=MAR
+prix=19

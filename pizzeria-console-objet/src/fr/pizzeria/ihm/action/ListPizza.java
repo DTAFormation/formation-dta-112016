@@ -1,25 +1,23 @@
 package fr.pizzeria.ihm.action;
 
-import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.ihm.IhmUtil;
 import fr.pizzeria.model.Pizza;
 
 public class ListPizza extends Action {
 
+	private IhmUtil utils;
 
-	private IhmUtil ihmUtil;
-
-	public ListPizza(IhmUtil ihmUtil) {
+	public ListPizza(IhmUtil utils) {
 		super();
-		this.ihmUtil = ihmUtil;
 		this.setDescription("1. Lister les pizzas");
+		this.utils = utils;
 	}
 
 	@Override
 	public void doAction() {
-		System.out.println("JE LISTE LES PIZZAS :D");
-		for(Pizza p : this.ihmUtil.getPizzaDao().findAll()) {
-			System.out.println(p);
+
+		for (Pizza p : utils.getPizzaDao().findAllPizzas()) {
+			System.out.println(p.getCode() + " -> " + p.getNom() + " (" + p.getPrix() + " €)");
 		}
 	}
 
