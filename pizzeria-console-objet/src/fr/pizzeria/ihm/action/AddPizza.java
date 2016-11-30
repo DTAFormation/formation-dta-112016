@@ -10,7 +10,7 @@ public class AddPizza extends Action {
 
 	public AddPizza(IhmUtil utils) {
 		super();
-		this.setDescription("2. Ajouter une nouvelle pizza");
+		this.setDescription("Ajouter une nouvelle pizza");
 		this.utils = utils;
 	}
 

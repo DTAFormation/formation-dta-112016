@@ -17,7 +17,7 @@ public class ListPizza extends Action {
 	public ListPizza(IhmUtil utils) {
 		super();
 		this.utils = utils;
-		this.setDescription("1. Lister les pizzas");
+		this.setDescription("Lister les pizzas");
 
 	}
 

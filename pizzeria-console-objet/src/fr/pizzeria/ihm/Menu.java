@@ -13,7 +13,7 @@ public abstract class Menu {
 
 
     //Action[] menu = new Action[5];
-    public List<Action> menu = new ArrayList<>();
+    public MAAP<Action> menu = new ArrayList<>();
     IhmUtil utils;
 
     public Menu(IhmUtil utils) {
@@ -26,12 +26,7 @@ public abstract class Menu {
     private void displayMenu() {
 
         System.out.println("***** Pizzeria Administration *****");
-/*		for (int i = 0; i < this.menu.length; ++i) {
-			this.menu[i].describe_action();
-		}*/
-        //menu.stream().forEach(m -> m.describe_action());
-
-        menu.stream().forEach(p -> p.describe_action());
+        menu.forEach(p -> p.describe_action());
     }
 
     private boolean parseAndExec() {

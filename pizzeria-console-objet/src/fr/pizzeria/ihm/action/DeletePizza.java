@@ -13,7 +13,7 @@ public class DeletePizza extends Action {
 
 	public DeletePizza(IhmUtil utils) {
 		super();
-		this.setDescription("4. Supprimer une pizza");
+		this.setDescription("Supprimer une pizza");
 		this.reader = utils.getScanner();
 		this.pizzaDao = utils.getPizzaDao();
 	}

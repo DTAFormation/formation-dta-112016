@@ -14,7 +14,7 @@ public class UpdatePizza extends Action {
 
 	public UpdatePizza(IhmUtil utils) {
 		super();
-		this.setDescription("3. Mettre à jour une pizza");
+		this.setDescription("Mettre à jour une pizza");
 		this.reader = utils.getScanner();
 		this.pizzaDao = utils.getPizzaDao();
 	}

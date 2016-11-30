@@ -14,7 +14,7 @@ public class AffichierPizzaTarifEleve extends Action{
 
     public AffichierPizzaTarifEleve(IhmUtil utils) {
         super();
-        this.setDescription("2. Afficher la pizza au tarif le plus élevé");
+        this.setDescription("Afficher la pizza au tarif le plus élevé");
         this.utils = utils;
     }
 
