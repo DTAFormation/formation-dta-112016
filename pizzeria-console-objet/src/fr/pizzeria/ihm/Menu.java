@@ -13,7 +13,7 @@ public abstract class Menu {
 
 
     //Action[] menu = new Action[5];
-    public MAAP<Action> menu = new ArrayList<>();
+    public List<Action> menu = new ArrayList<>();
     IhmUtil utils;
 
     public Menu(IhmUtil utils) {
