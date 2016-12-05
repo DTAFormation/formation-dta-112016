@@ -14,8 +14,6 @@
 	</modules>
 
 	<build>
-
-		<finalName>PizzeriaMaven</finalName>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -23,18 +21,6 @@
 					<configuration>
 						<source>1.8</source>
 						<target>1.8</target>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-jar-plugin</artifactId>
-					<version>3.0.2</version>
-					<configuration>
-						<archive>
-							<manifest>
-								<mainClass>fr.pizzeria.console.PizzeriaAdminConsoleApp</mainClass>
-							</manifest>
-						</archive>
 					</configuration>
 				</plugin>
 			</plugins>
@@ -54,6 +40,16 @@
 				<artifactId>commons-lang3</artifactId>
 				<version>3.5</version>
 			</dependency>
+			<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>pizzeria-dao</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>pizzeria-model</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 		</dependencies>
 	</dependencyManagement>
 </project>

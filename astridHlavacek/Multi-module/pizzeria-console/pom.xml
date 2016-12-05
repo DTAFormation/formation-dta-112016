@@ -12,6 +12,22 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>3.0.2</version>
+					<configuration>
+						<archive>
+							<manifest>
+								<mainClass>fr.pizzeria.console.PizzeriaAdminConsoleApp</mainClass>
+							</manifest>
+						</archive>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -37,12 +53,10 @@
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>pizzeria-dao</artifactId>
-			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>pizzeria-model</artifactId>
-			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 
