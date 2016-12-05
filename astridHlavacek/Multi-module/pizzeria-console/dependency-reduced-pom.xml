@@ -8,6 +8,21 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>pizzeria-console</artifactId>
   <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.0.2</version>
+          <configuration>
+            <archive>
+              <manifest>
+                <mainClass>fr.pizzeria.console.PizzeriaAdminConsoleApp</mainClass>
+              </manifest>
+            </archive>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
     <plugins>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
